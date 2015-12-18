@@ -31,4 +31,5 @@ ENV LC_ALL C.UTF-8
 EXPOSE 80 22
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
-CMD ["bash", "start.sh", "/usr/sbin/sshd", "-D"
+CMD ["bash", "start.sh"]
+CMD ["/usr/sbin/sshd", "-D"]
