@@ -39,4 +39,3 @@ EXPOSE 80 22 443
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
 CMD ["start.sh"]
-CMD ["/usr/sbin/sshd", "-D"]
