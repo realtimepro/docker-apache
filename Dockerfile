@@ -2,15 +2,14 @@ FROM babim/ubuntubase:ssh
 
 RUN apt-get update && \
     apt-get update && \
-    apt-get install apache2 apache2-mpm-worker libapache2-mod-fcgid apache2-suexec-custom -y --force-yes && \
+    apt-get install apache2 -y --force-yes && a2enmod proxy proxy_fcgi && a2enmod rewrite && service apache2 restart && \
     apt-get clean && \
     apt-get autoclean && \
     apt-get autoremove && \
-    a2enmod rewrite && \
     a2enmod headers
 
 # Define mountable directories.
-VOLUME ["/var/www"]
+VOLUME ["/var/www", "/etc/apache2/sites-available/"]
 
 # Set Apache environment variables (can be changed on docker run with -e)
 ENV APACHE_RUN_USER www-data
