@@ -1,5 +1,5 @@
 #!/bin/bash
-
+service ssh start
 # Start php7
 service php7.0-fpm start
 # Start apache
