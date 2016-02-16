@@ -1,4 +1,11 @@
 #!/bin/bash
+export TERM=xterm
+
+if [ -z "`etc/apache2/sites-available`" ] 
+then
+	rsync -a /etc-start/apache2/sites-available/* /etc/apache2/sites-available
+fi
+
 service ssh start
 # Start php7
 service php7.0-fpm start
