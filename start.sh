@@ -14,4 +14,4 @@ fi
 # Start cron
 service cron restart
 # Start apache
-/usr/sbin/apache2 -D FOREGROUND
+service apache2 restart
