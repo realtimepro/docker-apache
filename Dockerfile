@@ -1,4 +1,4 @@
-FROM babim/ubuntubase
+FROM babim/ubuntubaseinit
 
 RUN apt-get update && \
     apt-get install software-properties-common -y && \
@@ -15,10 +15,10 @@ RUN apt-get update && \
 	php-memcached php-pear libsasl2-dev libssl-dev libsslcommon2-dev libcurl4-openssl-dev npm nodejs-legacy && \
     a2enmod rewrite && \
     a2enmod headers && \
-    npm install -g grunt-cli bower \
-	&& pecl install mongodb \
-	&& echo "extension=mongodb.so" >> /etc/php/7.0/apache2/php.ini \
-	&& echo "extension=mongodb.so" >> /etc/php/7.0/cli/php.ini
+    npm install -g grunt-cli bower
+	#&& pecl install mongodb \
+	#&& echo "extension=mongodb.so" >> /etc/php/7.0/apache2/php.ini \
+	#&& echo "extension=mongodb.so" >> /etc/php/7.0/cli/php.ini
 	
 RUN apt-get install -y php7.0-bcmath && \
     apt-get clean && \
@@ -57,6 +57,5 @@ ENV APACHE_SERVERALIAS docker.localhost
 ENV APACHE_DOCUMENTROOT /var/www
 
 EXPOSE 80 443
-ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
-CMD ["/start.sh"]
+ADD start.sh /etc/my_init.d/startup.sh
+RUN chmod +x /etc/my_init.d/startup.sh
