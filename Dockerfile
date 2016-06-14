@@ -56,6 +56,6 @@ ENV APACHE_SERVERNAME localhost
 ENV APACHE_SERVERALIAS docker.localhost
 ENV APACHE_DOCUMENTROOT /var/www
 
-EXPOSE 80 443
+EXPOSE 80 443 22
 ADD start.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
