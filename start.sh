@@ -11,7 +11,7 @@ then
 	cp -R /etc-start/php/7.0/* /etc/php/7.0
 fi
 
-# Start php7
-#service php7.0 start
+# Start cron
+service cron restart
 # Start apache
 /usr/sbin/apache2 -D FOREGROUND
