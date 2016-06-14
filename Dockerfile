@@ -1,4 +1,4 @@
-FROM babim/ubuntubaseinit
+FROM babim/ubuntubaseinit:ssh
 
 RUN apt-get update && \
     apt-get install software-properties-common -y && \
